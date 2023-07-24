@@ -155,7 +155,7 @@ wxArrayString serial_port_list()
 	// Read all the filenames from the /dev directory...
 	while ((f = readdir(dir)) != NULL) {
 		// ignore everything that doesn't begin with "tty"
-		if (strncmp(f->d_name, "tty", 3)) continue;
+		//if (strncmp(f->d_name, "tty", 3)) continue;
 		// ignore anything that's not a known serial device name
 		for (i=0; i<NUM_DEVNAMES; i++) {
 			if (!strncmp(f->d_name + 3, devnames[i], len[i])) break;
@@ -188,10 +188,12 @@ wxArrayString serial_port_list()
 		// does it respond to reading the control signals?  If it's
 		// some sort of non-serial terminal (eg, pseudo terminals)
 		// this is where we will detect it's not really a serial port
+		/*
 		if (ioctl(fd, TIOCMGET, &bits) < 0) {
 			close(fd);
 			continue;
 		}
+		*/
 		// it passed all the tests, it's a serial port, or some sort
 		// of "terminal" that looks exactly like a real serial port!
 		close(fd);
