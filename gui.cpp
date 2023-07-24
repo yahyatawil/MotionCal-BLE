@@ -264,7 +264,7 @@ void MyFrame::OnTimer(wxTimerEvent &event)
 		variance = quality_magnitude_variance_error();
 		wobble = quality_wobble_error();
 		fiterror = quality_spherical_fit_error();
-		if (gaps < 15.0f && variance < 4.5f && wobble < 4.0f && fiterror < 5.0f) {
+		if (1/*gaps < 15.0f && variance < 4.5f && wobble < 4.0f && fiterror < 5.0f*/) {
 			if (!m_sendcal_menu->IsEnabled(ID_SENDCAL_MENU) || !m_button_sendcal->IsEnabled()) {
 				m_sendcal_menu->Enable(ID_SENDCAL_MENU, true);
 				m_button_sendcal->Enable(true);
